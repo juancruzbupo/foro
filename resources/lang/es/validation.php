@@ -141,7 +141,7 @@ return [
         'hour'                  => 'hora',
         'minute'                => 'minuto',
         'second'                => 'segundo',
-        'title'                 => 'título',
+        'title'                 => 'titulo',
         'content'               => 'contenido',
         'body'                  => 'contenido',
         'description'           => 'descripción',
