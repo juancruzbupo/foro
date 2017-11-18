@@ -11,15 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [
+  'as'   => 'posts.index',
+  'uses' => 'PostController@index'
+]);
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('posts/{post}', [
+Route::get('posts/{post}-{slug}', [
   'as'  => 'posts.show',
   'uses' => 'PostController@show',
 ])->where('post', '\d+'); //indico q el parametro post es unicamente decimal

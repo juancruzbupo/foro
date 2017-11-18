@@ -19,7 +19,7 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
      *
      * @return \Illuminate\Foundation\Application
      */
-    public function createApplication()
+    function createApplication()
     {
         $app = require __DIR__.'/../bootstrap/app.php';
 
@@ -28,13 +28,19 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
         return $app;
     }
 
-    public function defaultUser()
+    function defaultUser(array $attributes = [])
     {
 
       if($this->defaultUser){
         return $this->defaultUser;
       }
 
-      return $this->defaultUser = factory(\App\User::class)->create();
+      return $this->defaultUser = factory(\App\User::class)->create($attributes);
     }
+
+    function createPost(array $attributes = [])
+    {
+      return factory(\App\Post::class)->create($attributes);
+    }
+    
 }

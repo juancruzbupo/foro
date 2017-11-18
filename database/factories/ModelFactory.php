@@ -29,5 +29,24 @@ $factory->define(App\Post::class, function (Faker\Generator $faker)
     'title'   => $faker->sentence,
     'content' => $faker->paragraph,
     'pending' => $faker->boolean(),
+    'user_id' => function ()
+      {//funcion anonima q se ejecuta solo cuando no se setea manualmente el user_id
+        return factory(\App\User::class)->create()->id;
+      },
+  ];
+});
+
+$factory->define(App\Comment::class, function (Faker\Generator $faker)
+{
+  return [
+    'comment' => $faker->paragraph,
+    'post_id' => function ()
+      {//funcion anonima q se ejecuta solo cuando no se setea manualmente el user_id
+        return factory(\App\Post::class)->create()->id;
+      },
+    'user_id' => function ()
+      {//funcion anonima q se ejecuta solo cuando no se setea manualmente el user_id
+        return factory(\App\User::class)->create()->id;
+      },
   ];
 });
