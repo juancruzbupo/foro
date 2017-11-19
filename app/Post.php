@@ -24,6 +24,11 @@ class Post extends Model
       return $this->hasMany(Comment::class);
     }
 
+    function latestComments()
+    {
+      return $this->comments()->orderBy('created_at', 'DESC');
+    }
+
     function setTitleAttribute($value)
     {
       $this->attributes['title'] = $value;

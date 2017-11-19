@@ -28,7 +28,7 @@ $factory->define(App\Post::class, function (Faker\Generator $faker)
   return [
     'title'   => $faker->sentence,
     'content' => $faker->paragraph,
-    'pending' => $faker->boolean(),
+    'pending' => true,
     'user_id' => function ()
       {//funcion anonima q se ejecuta solo cuando no se setea manualmente el user_id
         return factory(\App\User::class)->create()->id;
