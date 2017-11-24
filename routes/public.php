@@ -16,7 +16,7 @@ Route::get('/', [
   'uses' => 'PostController@index'
 ]);
 
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 

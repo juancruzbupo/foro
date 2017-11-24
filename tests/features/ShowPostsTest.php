@@ -6,7 +6,8 @@ class ShowPostsTest extends FeatureTestCase
     {
       //Having
       $user = $this->defaultUser([
-        'name' => 'Bupo Juan',
+        'first_name' => 'Juan',
+        'last_name'  => 'Bupo',
       ]);
 
       $post = $this->createPost([ //create guarda en la base de datos y make crea pero no lo guarda

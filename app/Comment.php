@@ -8,7 +8,7 @@ use GrahamCampbell\Markdown\Facades\Markdown;
 class Comment extends Model
 {
     protected $fillable = ['comment', 'post_id'];
-
+    
     function post()
     {
       return $this->belongsTo(Post::class);

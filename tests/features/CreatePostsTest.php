@@ -1,5 +1,7 @@
 <?php
 
+use App\Post;
+
 class CreatePostsTest extends FeatureTestCase
 {
   function test_a_user_create_a_post()
@@ -21,8 +23,16 @@ class CreatePostsTest extends FeatureTestCase
       'user_id' => $user->id,
     ]);
 
+    $post = Post::first();
+
+    //test the author is subscribed automatically to the post
+    $this->seeInDatabase('subscriptions', [
+      'user_id' => $user->id,
+      'post_id' => $post->id,
+    ]);
+
     //Test a user redirected to the post details after creating it.
-    $this->see('Esta es una pregunta');
+    $this->seePageIs($post->url);
   }
 
   function test_creating_a_post_requires_authentication()
